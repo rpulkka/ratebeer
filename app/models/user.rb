@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def to_s
-    "#{username}"
+    user.to_s
   end
 end

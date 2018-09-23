@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
     # renderöi kirjautumissivun
   end
-  
+
   def create
     user = User.find_by username: params[:username]
     # tarkastetaan että käyttäjä olemassa, ja että salasana on oikea
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to signin_path, notice: "Username and/or password mismatch"
     end
   end
-  
+
   def destroy
     # nollataan sessio
     session[:user_id] = nil
