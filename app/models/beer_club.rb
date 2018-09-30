@@ -3,6 +3,6 @@ class BeerClub < ApplicationRecord
   has_many :users, through: :memberships
 
   def to_s
-    beer_club.to_s
+    "#{ name }"
   end
 end
