@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.5.1
+script:
+- bundle exec rails db:migrate
+- bundle exec rspec -fd spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: P5RQtvk5wdxMniULh0LQAEEuWJqANL9VHKhWFlhNPWXoxrF5TWz3ftpZxaA6hVL1PjuhQ68G+uMhpsYS5FvPLa9VYlpvegQWKAfr1dS0yrFChhccKFQ8MxK7EvOHLYTk4gkIj+xyhvoRXrRMSuBk3ZTDSkm0hrrFQEeiI0zdpyvw18aX0woHS4PW4u4GQiPvUo5k4u19jZYVLx/16Os90ahiD1oLMovqGpm7wGbGTx1be7cF+p6x80Hiq7boXBF5xvul9ZtV8p9nBmNUYkV2YLBfSz9QEFHhr07X13yyBXCeWbbTsliJWnKrnyIhtXYgWHI0dUNU+jwqoYg0R6XO4InwuGj7YuiAIYak7mRxQIHsL57fzxU0rJtlQXbEEi6mTktUX+cIHtVvTtts8oxiYQJ9Bkv2Km5qg+ipCdUoRQo9UQ1Hq3q6+S5m/GBBg6lp9aQyMJFbA+MqSWKG4Hxj+4qUVWI5xJ6dL3ynBNtOGtome6ZRoKIhInNEhNl2S484vMSg7fkwPW9lrgiMC5u+d9i//7lMKPSPak0HzAZvm3LoJMTHhDi0w+MGSpgQnZr7lcRipa/VVF13BX/N8TWKv66AIX7+HZM4JEUDeNojN6PxMonT4PDb/woQLR8H2tvZR+omoBpSYRPPLRGu7cILP3Mg0lcWeF8GUC8bJ1MZUVk=
+  app: agile-cove-20342
+  on:
+    repo: rpulkka/ratebeer
+  run: "rake db:migrate"

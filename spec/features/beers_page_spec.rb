@@ -5,8 +5,10 @@ include Helpers
 describe "Beer" do
   it "when given, is registered to the beer and user who is signed in" do
     FactoryBot.create :brewery, name:"Koff"
+    FactoryBot.create :user
     sign_in(username: "Pekka", password: "Foobar1")
     visit new_beer_path
+    
     fill_in('beer[name]', with:'Bisse')
     select('Weizen', from:'beer[style]')
     select('Koff', from:'beer[brewery_id]')
@@ -17,8 +19,10 @@ describe "Beer" do
 
   it "alert is shown and creation is aborted when beer is misnamed" do
     FactoryBot.create :brewery, name:"Koff"
+    FactoryBot.create :user
     sign_in(username: "Pekka", password: "Foobar1")
     visit new_beer_path
+    
     fill_in('beer[name]', with:'')
     select('Weizen', from:'beer[style]')
     select('Koff', from:'beer[brewery_id]')

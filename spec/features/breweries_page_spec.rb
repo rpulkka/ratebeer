@@ -34,6 +34,5 @@ describe "Breweries page" do
       expect(page).to have_content "Koff"
       expect(page).to have_content "1897"
     end
-
   end
 end

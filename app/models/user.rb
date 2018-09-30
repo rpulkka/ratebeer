@@ -31,4 +31,44 @@ class User < ApplicationRecord
 
     ratings.order(score: :desc).limit(1).first.beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+
+    fav_style = ""
+    fav_avg = 0
+    style_hash = ratings.group_by{ |r| r.beer.style }
+    style_hash.each_value do |ratings|
+      sum = 0
+      ratings.each do |rating|
+        sum += rating.score
+      end
+      avg = sum / ratings.size
+      if avg > fav_avg
+        fav_avg = avg
+        fav_style = style_hash.key(ratings)
+      end
+    end
+    fav_style
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+
+    fav_brewery = ""
+    fav_avg = 0
+    style_hash = ratings.group_by{ |r| r.beer.brewery }
+    style_hash.each_value do |ratings|
+      sum = 0
+      ratings.each do |rating|
+        sum += rating.score
+      end
+      avg = sum / ratings.size
+      if avg > fav_avg
+        fav_avg = avg
+        fav_brewery = style_hash.key(ratings)
+      end
+    end
+    fav_brewery
+  end
 end

@@ -1,6 +1,6 @@
 <h2>List of ratings</h2>
 
-<p><%= link_to 'Make a new rating', new_rating_path %></p>
+<p><%= link_to 'Make a new rating', new_rating_path if current_user %></p>
 
 <p>Total amount of ratings: <%= Rating.count %></p>
 

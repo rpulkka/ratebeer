@@ -30,9 +30,31 @@ describe "Rating" do
     FactoryBot.create :rating, score:10, beer_id:1, user_id:1
     FactoryBot.create :rating, score:15, beer_id:2, user_id:1
     visit ratings_path
-    
+
     expect(page).to have_content "Total amount of ratings: 2"
     expect(page).to have_content "iso 3"
     expect(page).to have_content "Karhu"
+  end  
+
+  it "are shown in rater's page" do
+    FactoryBot.create :user, username: "Random"
+    FactoryBot.create :rating, score:10, beer_id:1, user_id:1
+    FactoryBot.create :rating, score:15, beer_id:2, user_id:2
+    visit user_path(user)
+
+    expect(page).to have_content "iso 3"
+    expect(page).to_not have_content "Karhu"
+  end
+
+  it "beer is deleted from rater's page" do
+    FactoryBot.create :rating, score:10, beer_id:1, user_id:1
+    FactoryBot.create :rating, score:15, beer_id:2, user_id:1
+    visit user_path(user)
+
+    expect{
+      within("li:first-child") do
+        click_link "delete"
+      end  
+    }.to change{Rating.count}.from(2).to(1)
   end  
 end
