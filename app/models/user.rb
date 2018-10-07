@@ -46,7 +46,7 @@ class User < ApplicationRecord
       avg = sum / ratings.size
       if avg > fav_avg
         fav_avg = avg
-        fav_style = style_hash.key(ratings)
+        fav_style = style_hash.key(ratings).name
       end
     end
     fav_style

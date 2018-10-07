@@ -1,11 +1,5 @@
-b1 = Brewery.create name:"Koff", year:1897
-b2 = Brewery.create name:"Malmgard", year:2001
-b3 = Brewery.create name:"Weihenstephaner", year:1040
 
-b1.beers.create name:"Iso 3", style:"Lager"
-b1.beers.create name:"Karhu", style:"Lager"
-b1.beers.create name:"Tuplahumala", style:"Lager"
-b2.beers.create name:"Huvila Pale Ale", style:"Pale Ale"
-b2.beers.create name:"X Porter", style:"Porter"
-b3.beers.create name:"Hefeweizen", style:"Weizen"
-b3.beers.create name:"Helles", style:"Lager"
+s1 = Style.create name:"Lager", description:"Just a regular beer."
+s2 = Style.create name:"Pale Ale", description:"Pale ale is an ale made with predominantly pale malt."
+s3 = Style.create name:"Porter", description:"Porter is said to have been popular with transportation workers of Central London, hence the name. Most traditional British brewing documentation from the 1700's states that Porter was a blend of three different styles: an old ale (stale or soured), a new ale (brown or pale ale) and a weak one (mild ale), with various combinations of blending and staleness. The end result was also commonly known as Entire Butt or Three Threads and had a pleasing taste of neither new nor old. It was the first truly engineered beer, catering to the public's taste, playing a critical role in quenching the thirst of the UK's Industrial Revolution and contributing to the rise of today's mega-breweries. Porter saw a comeback in the US during the homebrewing and micro-brewery revolution of the late 1970s and early 80s and modern-day Porters are typically brewed using a pale malt base with the addition of black malt, crystal, chocolate, or smoked brown malt. While uncommon, roasted malt is occasionally added too. Some brewers will also age their beers after inoculation with live bacteria to create an authentic taste of the past. Hop bitterness is moderate on the whole and the color ranges from brown to black. Overall, English Porters remain very complex and interesting beers.."
+s4 = Style.create name:"Weizen", description:"Similar to a Hefeweizen, these southern German wheat beers are brewed as darker versions (Dunkel means dark) with deliciously complex malts and a low balancing bitterness. Creamy and full-bodied, most Dunkelweizen are medium amber to amber-brown and appear slightly murky from the weizen yeast. Phenolic (clove) and fruity (banana, bubble gum) character will usually be present in the nose, and some examples may even taste like banana bread."

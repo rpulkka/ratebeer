@@ -15,7 +15,7 @@
     <% @memberships.each do |membership| %>
       <tr>
         <td><%= link_to membership.beer_club.name, membership.beer_club %></td>
-        <td><%= link_to membership.user.to_s, membership.user %></td>
+        <td><%= link_to membership.user.username, membership.user %></td>
         <td><%= link_to 'Show', membership %></td>
         <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
         <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,7 +10,7 @@ describe "Beer" do
     visit new_beer_path
     
     fill_in('beer[name]', with:'Bisse')
-    select('Weizen', from:'beer[style]')
+    select(Style.find_by(name: 'Weizen'), from:'beer[style]')
     select('Koff', from:'beer[brewery_id]')
     expect{
       click_button "Create Beer"
