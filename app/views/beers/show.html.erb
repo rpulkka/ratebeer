@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 <h2>
   <%= @beer.name %>
@@ -28,11 +28,10 @@
   <%= form_for(@rating) do |f| %>
     <%= f.hidden_field :beer_id %>
     Score: <%= f.number_field :score %>
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   <% end %>
 
   <br/>
 
-  <%= link_to 'Edit', edit_beer_path(@beer) %> 
-  <%= link_to 'Destroy', @beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= edit_and_destroy_buttons(@beer) %>
 <% end %>

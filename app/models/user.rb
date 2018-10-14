@@ -71,4 +71,9 @@ class User < ApplicationRecord
     end
     fav_brewery
   end
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = User.all.sort_by{ |b| -(b.ratings.count || 0) }
+    return sorted_by_rating_in_desc_order.take(3)
+  end
 end

@@ -4,8 +4,30 @@
 
 <p>Total amount of ratings: <%= Rating.count %></p>
 
+<p>Top 3 breweries:</p>
+
+<%= render 'list', objects: @top_breweries %>
+
+<p>Top 3 beers:</p>
+
+<%= render 'list', objects: @top_beers %>
+
+<p>Top 3 styles:</p>
+
+<%= render 'list', objects: @top_styles %>
+
+<p>Most active users:</p>
+
 <ul>
- <% @ratings.each do |rating| %>
+ <% @top_users.each do |user| %>
+  <li> <%= link_to user.username, user_path(user) %> </li>
+ <% end %>
+</ul>
+
+<p>Recent ratings:</p>
+
+<ul>
+ <% @recent.each do |rating| %>
   <li> <%= rating %> <%= link_to rating.user.username, user_path(rating.user) %> </li>
  <% end %>
 </ul>

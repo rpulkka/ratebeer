@@ -1,11 +1,21 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"></p>
 
 <p>
   <h1> <%= @user.username %> </h1>
 </p>
 
+<% if (@user.closed == true) %>
+  <span class="badge badge-warning">Closed</span>
+<% end %>
+
+<% if(current_user != nil && current_user.admin == true) %>
+
+<%= link_to "Close/unclose user", toggle_closed_user_path(@user.id), method: :post, class: "btn btn-primary" %>
+
+<% end %>
+
 <p>
-  Has made <%= @user.ratings.count %> ratings, average rating <%= @user.average %> 
+  Has made <% @user.ratings.count %> ratings, average rating <% round(@user.average_rating) %>
 </p>
 
 <p>
