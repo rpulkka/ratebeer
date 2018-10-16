@@ -55,7 +55,7 @@
                 <%= link_to 'my page', current_user, { class: "dropdown-item" } %>
                 <%= link_to 'rate a beer ', new_rating_path, { class: "dropdown-item" } %>
                 <%= link_to 'join a club ', new_membership_path, { class: "dropdown-item" } %>
-                <%= link_to 'signout', signout_path, { class: "dropdown-item", method: :destroy } %>
+                <%= link_to 'signout', signout_path, { class: "dropdown-item", method: :"delete"} %>
               </div>
             </div>
           <% else %>
