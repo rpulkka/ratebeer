@@ -4,6 +4,9 @@
 
 <h2>Active</h2>
 
+<!--Viikko 7, t. 12: Toteutettu Eventual consistency -mallin mukaan expiroitumisaika kaikkiin cacheihin, 10min -->
+<%= cache "brewerylist", expires_in:10.minutes, skip_digest: true do %>
+
 <p> Number of active breweries: <%= @active_breweries.count %> </p>
 
 <%= render 'list', breweries: @active_breweries %>
@@ -15,5 +18,7 @@
 <%= render 'list', breweries: @retired_breweries %>
 
 <br>
+
+<% end %>
 
 <%= link_to 'New Brewery', new_brewery_path, class:"btn btn-primary"  %>

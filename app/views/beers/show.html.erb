@@ -1,5 +1,8 @@
 <p id="notice"></p>
 
+<!--Viikko 7, t. 12: Toteutettu Eventual consistency -mallin mukaan expiroitumisaika kaikkiin cacheihin, 10min -->
+<% cache @beer, expires_in:10.minutes do %> 
+
 <h2>
   <%= @beer.name %>
 </h2>
@@ -21,6 +24,8 @@
     Has <%= pluralize(@beer.ratings.count, 'rating') %>, average <%= @beer.average_rating %>
   <% end %>
 </p>
+
+<% end %>
 
 <% if current_user %>
   <h4>Rate this beer:</h4>

@@ -1,5 +1,8 @@
 <p id="notice"></p>
 
+<!--Viikko 7, t. 12: Toteutettu Eventual consistency -mallin mukaan expiroitumisaika kaikkiin cacheihin, 10min -->
+<% cache @brewery, expires_in:10.minutes do %> 
+
 <h2>
 <%= @brewery.name %>
 <% if not @brewery.active  %>
@@ -14,6 +17,7 @@
 <p>
 <% @brewery.beers.each do |beer| %>
  <%= link_to beer.name, beer %>
+ <br/>
 <% end %>
 </p>
 
@@ -24,6 +28,8 @@
   Has <%= pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
 <% end %>
 </p>
+
+<% end %>
 
 <% if current_user %>
   <%= edit_and_destroy_buttons(@brewery) %>

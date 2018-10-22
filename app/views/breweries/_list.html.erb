@@ -3,6 +3,7 @@
   <tr>
     <th>Name</th>
     <th>Year</th>
+    <th>Active</th>
   </tr>
   </thead>
 
@@ -11,7 +12,7 @@
       <tr>
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
-        <td></td>
+        <td><%= brewery.active %></td>
       </tr>
   <% end %>
   </tbody>

@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   resources :users do
     post 'toggle_closed', on: :member
   end
-
+  
   root 'breweries#index'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   get 'places', to: 'places#index'
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to:'breweries#list'
   post 'places', to:'places#search'
   post 'places', to:'places#search'
   delete 'signout', to: 'sessions#destroy'

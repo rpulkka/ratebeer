@@ -11,8 +11,8 @@ class MembershipsController < ApplicationController
   # GET /memberships/1.json
   def show
     @membership = params[:id]
-    #@id = params[:id]
-    #@membership = Membership.find_by(id: @id)
+    # @id = params[:id]
+    # @membership = Membership.find_by(id: @id)
   end
 
   # GET /memberships/new
@@ -79,6 +79,6 @@ class MembershipsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def membership_params
-    params.require(:membership).permit(:beer_club_id, :user_id)
+    params.require(:membership).permit(:beer_club_id, :user_id, :confirmed)
   end
 end

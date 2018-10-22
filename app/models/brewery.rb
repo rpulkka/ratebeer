@@ -1,5 +1,4 @@
 class Brewery < ApplicationRecord
-
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
@@ -9,9 +8,10 @@ class Brewery < ApplicationRecord
                                    less_than_or_equal_to: ->(_) { Time.now.year } }
 
   scope :active, -> { where active: true }
-  scope :retired, -> { where active: [nil,false] }
+  scope :retired, -> { where active: [nil, false] }
 
   include RatingAverage
+  extend Top
 
   def print_report
     puts name
@@ -24,12 +24,11 @@ class Brewery < ApplicationRecord
     puts "changed year to #{year}"
   end
 
-  def self.top(n)
-    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating || 0) }
-    return sorted_by_rating_in_desc_order.take(n)
-  end
-
   def to_s
     name
+  end
+
+  def beers_count
+    beers.count
   end
 end
